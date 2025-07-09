@@ -272,7 +272,7 @@ export default function SettingsPage() {
                         id="fullName"
                         value={profileData.fullName}
                         onChange={(e) => setProfileData({...profileData, fullName: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-500"
                         placeholder="Enter your full name"
                       />
                     </div>
@@ -285,7 +285,7 @@ export default function SettingsPage() {
                         id="email"
                         value={profileData.email}
                         disabled
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-50 text-gray-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-50 text-gray-700"
                         placeholder="your@email.com"
                       />
                       <p className="text-xs text-gray-500 mt-1">Email cannot be changed</p>
@@ -299,7 +299,7 @@ export default function SettingsPage() {
                         id="company"
                         value={profileData.company}
                         onChange={(e) => setProfileData({...profileData, company: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-500"
                         placeholder="Your company name"
                       />
                     </div>
@@ -312,7 +312,7 @@ export default function SettingsPage() {
                         id="role"
                         value={profileData.role}
                         onChange={(e) => setProfileData({...profileData, role: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-500"
                         placeholder="Your role/title"
                       />
                     </div>
@@ -325,8 +325,8 @@ export default function SettingsPage() {
                         id="phone"
                         value={profileData.phone}
                         onChange={(e) => setProfileData({...profileData, phone: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="+1 (555) 123-4567"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-500"
+                        placeholder="+1 (111) 111-1111"
                       />
                     </div>
                     <div>
@@ -337,7 +337,7 @@ export default function SettingsPage() {
                         id="timezone"
                         value={profileData.timezone}
                         onChange={(e) => setProfileData({...profileData, timezone: e.target.value})}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                       >
                         <option value="UTC">UTC</option>
                         <option value="America/New_York">Eastern Time</option>
