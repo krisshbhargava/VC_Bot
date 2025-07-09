@@ -1,9 +1,21 @@
 "use client";
-import { useState } from "react";
-import { MagnifyingGlassIcon, ArrowTrendingUpIcon } from "@heroicons/react/24/outline";
+import { ArrowTrendingUpIcon } from "@heroicons/react/24/outline";
+import { useAuth } from '@/contexts/AuthContext';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
-  const [company, setCompany] = useState("");
+  const { user } = useAuth();
+  const router = useRouter();
+
+  const handleStartAnalysis = () => {
+    if (user) {
+      // If user is signed in, go to pipelines
+      router.push('/pipelines');
+    } else {
+      // If user is not signed in, go to auth
+      router.push('/auth');
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#f8fafc] to-white p-4">
@@ -22,23 +34,11 @@ export default function Home() {
           <span className="text-2xl font-bold text-gray-900">Company Due Diligence</span>
         </div>
         <p className="text-gray-500 mb-6 text-center">
-          Enter a company name to begin comprehensive market research and analysis
+          Start managing your due diligence pipelines and company analysis
         </p>
-        <div className="flex w-full mb-4">
-          <div className="relative flex-1">
-            <MagnifyingGlassIcon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-200 focus:outline-none text-gray-900 bg-white placeholder-gray-400"
-              placeholder="Enter company name (e.g., Stripe, Airbnb, Notion)"
-              value={company}
-              onChange={e => setCompany(e.target.value)}
-            />
-          </div>
-        </div>
         <button
+          onClick={handleStartAnalysis}
           className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg text-lg transition mb-2 shadow"
-          // onClick={...} // Add navigation/logic here
         >
           Start Due Diligence Analysis
         </button>

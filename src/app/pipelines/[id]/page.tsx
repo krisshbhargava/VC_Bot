@@ -1,6 +1,6 @@
 "use client";
 import { useParams } from "next/navigation";
-import { useState, Suspense } from "react";
+import { Suspense } from "react";
 import PipelineDetailSkeleton from "./components/PipelineDetailSkeleton";
 import PipelineDetailContent from "./components/PipelineDetailContent";
 

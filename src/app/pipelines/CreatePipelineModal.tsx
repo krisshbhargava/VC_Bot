@@ -1,12 +1,22 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import type { FC, FormEvent, ChangeEvent, KeyboardEvent } from "react";
+import type { FC, FormEvent, ChangeEvent } from "react";
+
+interface PipelineData {
+  name: string;
+  arrMin: string;
+  arrMax: string;
+  teamMin: string;
+  teamMax: string;
+  locations: string[];
+  tags: string[];
+}
 
 interface CreatePipelineModalProps {
   open: boolean;
   onClose: () => void;
-  onCreate: (data: any) => void;
+  onCreate: (data: PipelineData) => void;
   existingNames: string[];
 }
 
@@ -46,7 +56,7 @@ const CreatePipelineModal: FC<CreatePipelineModalProps> = ({ open, onClose, onCr
   // Close on Escape
   useEffect(() => {
     if (!open) return;
-    const handler = (e: KeyboardEvent | any) => {
+    const handler = (e: globalThis.KeyboardEvent) => {
       if (e.key === "Escape") {
         if (dirty && (name || arrMin || arrMax || teamMin || teamMax || locations.length || tags.length)) {
           if (!window.confirm("Unsaved changes?")) return;
@@ -129,18 +139,16 @@ const CreatePipelineModal: FC<CreatePipelineModalProps> = ({ open, onClose, onCr
     e.preventDefault();
     if (!canCreate) return;
     setCreating(true);
-    setTimeout(() => {
-      setCreating(false);
-      onCreate({
-        name: name.trim(),
-        arrMin: arrMin.replace(/,/g, ""),
-        arrMax: arrMax.replace(/,/g, ""),
-        teamMin,
-        teamMax,
-        locations,
-        tags,
-      });
-    }, 1200);
+    onCreate({
+      name: name.trim(),
+      arrMin: arrMin.replace(/,/g, ""),
+      arrMax: arrMax.replace(/,/g, ""),
+      teamMin,
+      teamMax,
+      locations,
+      tags,
+    });
+    setCreating(false);
   }
 
   if (!open) return null;
